@@ -10,7 +10,36 @@ import SwiftUI
 
 struct ContentView : View {
     var body: some View {
-        Text("Hello World")
+        VStack {
+            Image("car_mercedes")
+                .resizable()
+                .frame(height: 230)
+            
+            Image("hamilton")
+                .resizable()
+                .frame(width: 171.5, height: 171.5)
+                .clipShape(Circle())
+                .background(Circle().foregroundColor(.white))
+                .overlay(Circle().stroke(Color.white, lineWidth: 3))
+                .offset(x: 0, y: -65)
+                .shadow(radius: 18)
+                .padding(.bottom, -55)
+            
+            Text("Lewis Hamilton")
+                .font(.system(size: 45))
+                .fontWeight(.bold)
+            
+            VStack(alignment: .leading) {
+                
+                StatsRow(statKey: "Edad", statValue: "34")
+                
+                StatsRow(statKey: "Número", statValue: "44")
+                
+                StatsRow(statKey: "Origen", statValue: "Reino Unido")
+                
+                Spacer()
+            }
+        }.edgesIgnoringSafeArea(.top)
     }
 }
 
