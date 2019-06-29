@@ -10,24 +10,25 @@ import SwiftUI
 
 struct DriverRow : View {
     
-    var imageName: String
-    var pilotName: String
-    var backGroundColor: Color
+    var driver: Driver
     
     var body: some View {
         
         HStack(spacing: 40.0) {
-            Image(imageName)
+            Image(driver.imageName)
                 .resizable()
+                .frame(width: 84, height: 84)
                 .scaledToFill()
                 .clipShape(Circle())
-                .background(Circle().foregroundColor(backGroundColor))
+                .background(Circle().foregroundColor(driver.team.color))
                 .overlay(Circle().stroke(Color.white, lineWidth: 1))
                 .shadow(radius: 5)
                 
-            Text(pilotName)
+            Text(driver.name)
                 .font(.system(size: 30))
                 .fontWeight(.bold)
+                .lineLimit(1)
+                .minimumScaleFactor(0.5)
             
             Spacer()
         }.padding(EdgeInsets(top: 8, leading: 16, bottom: 8, trailing: 16))
@@ -37,8 +38,13 @@ struct DriverRow : View {
 #if DEBUG
 struct DriverRow_Previews : PreviewProvider {
     static var previews: some View {
-        DriverRow(imageName: "hamilton", pilotName: "Lewis Hamilton", backGroundColor: Color(red: 79.0/255.0, green: 164.0/255.0, blue: 161.0/255.0)).previewLayout(.fixed(width: 450, height: 80
-            ))
+        
+        VStack {
+            DriverRow(driver: drivers[0]).previewLayout(.fixed(width: 450, height: 100))
+            DriverRow(driver: drivers[1]).previewLayout(.fixed(width: 450, height: 100))
+            DriverRow(driver: drivers[2]).previewLayout(.fixed(width: 450, height: 100))
+            DriverRow(driver: drivers[3]).previewLayout(.fixed(width: 450, height: 100))
+        }
     }
 }
 #endif

@@ -80,14 +80,14 @@ let drivers = [
            number: 10 ,
            birthPlace: "Francia"
     ),
-    Driver(id: 6,
-           name: "Nico Hulkenberg",
-           imageName: "hulkenberg",
-           team: renault,
-           age: 31,
-           number: 27 ,
-           birthPlace: "Alemania"
-    ),
+//    Driver(id: 6,
+//           name: "Nico Hulkenberg",
+//           imageName: "hulkenberg",
+//           team: renault,
+//           age: 31,
+//           number: 27 ,
+//           birthPlace: "Alemania"
+//    ),
     Driver(id: 7,
            name: "Daniel Ricciardo",
            imageName: "ricciardo",
