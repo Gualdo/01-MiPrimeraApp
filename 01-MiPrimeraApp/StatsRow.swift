@@ -27,6 +27,7 @@ struct StatsRow : View {
             Spacer()
         }
         .padding(.leading)
+        .minimumScaleFactor(0.1)
     }
 }
 

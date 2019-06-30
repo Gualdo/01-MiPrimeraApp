@@ -17,19 +17,16 @@ struct DriverRow : View {
         HStack(spacing: 40.0) {
             Image(driver.imageName)
                 .resizable()
+                .scaledToFit()
                 .frame(width: 84, height: 84)
-                .scaledToFill()
                 .clipShape(Circle())
                 .background(Circle().foregroundColor(driver.team.color))
                 .overlay(Circle().stroke(Color.white, lineWidth: 1))
                 .shadow(radius: 5)
                 
             Text(driver.name)
-                .font(.system(size: 30))
-                .fontWeight(.bold)
-                .lineLimit(1)
-                .minimumScaleFactor(0.5)
-            
+                .font(.largeTitle)
+                .minimumScaleFactor(0.1)
             Spacer()
         }.padding(EdgeInsets(top: 8, leading: 16, bottom: 8, trailing: 16))
     }
@@ -40,10 +37,10 @@ struct DriverRow_Previews : PreviewProvider {
     static var previews: some View {
         
         VStack {
-            DriverRow(driver: drivers[0]).previewLayout(.fixed(width: 450, height: 100))
-            DriverRow(driver: drivers[1]).previewLayout(.fixed(width: 450, height: 100))
-            DriverRow(driver: drivers[2]).previewLayout(.fixed(width: 450, height: 100))
-            DriverRow(driver: drivers[3]).previewLayout(.fixed(width: 450, height: 100))
+            DriverRow(driver: drivers[0]).previewLayout(.device)
+            DriverRow(driver: drivers[1]).previewLayout(.device)
+            DriverRow(driver: drivers[2]).previewLayout(.device)
+            DriverRow(driver: drivers[3]).previewLayout(.device)
         }
     }
 }

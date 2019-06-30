@@ -24,7 +24,20 @@ struct DriversList : View {
 #if DEBUG
 struct DriversList_Previews : PreviewProvider {
     static var previews: some View {
-        DriversList()
+        Group {
+            DriversList()
+                .previewDevice("iPhone SE")
+                .previewDisplayName("SE")
+            DriversList()
+                .previewDevice("iPhone 8")
+                .previewDisplayName("8")
+            DriversList()
+                .previewDevice("iPhone Xs Max")
+                .previewDisplayName("Xs Max")
+            DriversList()
+                .previewDevice("iPad Pro (12.9-inch) (3rd generation)")
+                .previewDisplayName("Ipad Pro 12.9")
+        }
     }
 }
 #endif

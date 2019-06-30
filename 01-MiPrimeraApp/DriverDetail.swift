@@ -16,11 +16,11 @@ struct DriverDetail : View {
         VStack {
             Image(driver.team.imageName)
                 .resizable()
-                .frame(height: 230)
+                .scaledToFill()
             
             Image(driver.imageName)
                 .resizable()
-                .frame(width: 171.5, height: 171.5)
+                .scaledToFit()
                 .clipShape(Circle())
                 .background(Circle().foregroundColor(driver.team.color))
                 .overlay(Circle().stroke(Color.white, lineWidth: 3))
@@ -31,6 +31,9 @@ struct DriverDetail : View {
             Text(driver.name)
                 .font(.system(size: 45))
                 .fontWeight(.bold)
+                .padding(.leading, 16)
+                .padding(.trailing, 16)
+                .minimumScaleFactor(0.1)
             
             VStack(alignment: .leading) {
                 
@@ -41,6 +44,7 @@ struct DriverDetail : View {
                 StatsRow(statKey: "Origen", statValue: driver.birthPlace)
                 
                 Spacer()
+                    .frame(height: 50)
             }
         }.edgesIgnoringSafeArea(.top)
     }
@@ -49,7 +53,20 @@ struct DriverDetail : View {
 #if DEBUG
 struct ContentView_Previews : PreviewProvider {
     static var previews: some View {
-        DriverDetail(driver: drivers[7])
+        Group {
+            DriverDetail(driver: drivers[1])
+                .previewDevice("iPhone Xs")
+                .previewDisplayName("Xs")
+            DriverDetail(driver: drivers[2])
+                .previewDevice("iPhone 8")
+                .previewDisplayName("8")
+            DriverDetail(driver: drivers[3])
+                .previewDevice("iPhone SE")
+                .previewDisplayName("SE")
+            DriverDetail(driver: drivers[4])
+                .previewDevice("iPad Pro (12.9-inch) (3rd generation)")
+                .previewDisplayName("PRO 12.9")
+        }
     }
 }
 #endif
