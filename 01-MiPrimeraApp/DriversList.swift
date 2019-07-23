@@ -13,7 +13,7 @@ struct DriversList : View {
         NavigationView {
             List(drivers) {
                 driver in
-                NavigationButton(destination: DriverDetail(driver: driver)) {
+                NavigationLink(destination: DriverDetail(driver: driver)) {
                     DriverRow(driver: driver)
                 }
             }.navigationBarTitle(Text("Formula 1 - 2019"), displayMode: .large)
